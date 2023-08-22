@@ -1,0 +1,309 @@
+/***** デフォルトスタイル設定 *****************************************/
+body, html {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-family: sans-serif;
+}
+
+
+body {
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/***** top、ログイン画面ヘッダー *****************************************/
+body header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:mediumaquamarine;
+    height: 55px;
+    padding: 0 34px;
+}
+
+body header .container .header-left {
+    color: #fff;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+body header .container a {
+    color: #fff;
+    margin-right: 13px;
+}
+
+
+/***** サイドバー *****************************************/
+.container-body {
+    display: flex;
+}
+
+.sidebar {
+    flex: 0 0 180px;
+    background-color:mediumaquamarine;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.sidebar h1 {
+    margin-bottom: 55px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li:first-child {
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    padding: 8px 0;
+    margin-bottom: 21px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.sidebar form {
+    margin: 0;
+}
+
+/***** top画面 *****************************************/
+.top {
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.top img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: auto;
+}
+
+.top h1 {
+    position: absolute;
+    font-size: 10vw;
+    color:mediumaquamarine;
+    text-shadow: 5px 5px 5px #fff;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+    top: 30vh;
+    left: 14vw;
+}
+
+
+/***** ダッシュボードのスタイル ***************************************/
+.dashboard {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: calc(100vh - 60px); */
+}
+
+.dashboard h2 {
+    margin-top: 100px;
+    margin-left: 50px;
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+.dashboard p {
+    margin-left: 50px;
+    font-size: 16px;
+}
+
+/***** コンテナのスタイル ***************************************/
+/* .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+*/
+.container-box {
+    width: 640px;
+    margin: 34px auto;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.title-box {
+    width: 100%;
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+}
+
+.container-box h2 {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 5px 8px;
+    margin: 0;
+}
+
+.container-box form div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    margin: 3px 0;
+}
+
+.container-box form div label {
+    width: 150px;
+    margin-right: 8px;
+}
+
+.container-box form div input {
+    height: 24px;
+    padding: 5px;
+    margin: 8px 0;
+}
+/*
+.container-index input {
+    margin-top: 5px;
+}
+
+.container-index label,
+.container-index h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.container-index label {
+    color: #555;
+}
+*/
+.container-register h2 {
+    color: #555;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 21px;
+}
+
+.container-register form div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    margin: 3px 0;
+}
+
+.container-register form div label {
+    width: 170px;
+    margin-right: 8px;
+}
+
+.container-register form div input {
+    width: 100%;
+    margin: 8px 0;
+}
+
+
+/***** フォームのスタイル ***************************************/
+form {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button,
+input[type="submit"] {
+    width: auto;
+    padding: 5px 13px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+/***** ボタンのスタイル ***************************************/
+.login_button,
+.register-button
+{
+    background-color: rgb(94, 94, 255);
+    color: #FFF;
+}
+
+.logout_button {
+    width: 180px;
+    height: 44px;
+    border-radius: 0;
+    background-color:mediumaquamarine;
+    color:#fff;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.login_button:hover,
+.register-button:hover,
+input[type="submit"]:hover {
+    background-color: rgb(131, 131, 254);
+}
+
+.logout_button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.register-button {
+    margin-top: 34px;
+}
+
+
+/***** エラーメッセージのスタイル ***************************************/
+.errors li {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
