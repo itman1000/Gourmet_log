@@ -21,6 +21,42 @@ a {
     text-decoration: none;
 }
 
+main {
+    width: 100%;
+    height: auto;
+}
+
+button,
+input[type="submit"] {
+    width: auto;
+    padding: 5px 13px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+/***** フォームのスタイル ***************************************/
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/***** エラーメッセージのスタイル ***************************************/
+.errors li {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+
 /***** top、ログイン画面ヘッダー *****************************************/
 body header .container {
     display: flex;
@@ -42,6 +78,25 @@ body header .container a {
     margin-right: 13px;
 }
 
+.login_button,
+.register-button
+{
+    background-color: rgb(94, 94, 255);
+    color: #FFF;
+}
+
+.login_button:hover,
+.register-button:hover,
+input[type="submit"]:hover {
+    background-color: rgb(131, 131, 254);
+}
+
+
+/***** ユーザー登録 *****************************************/
+.register-button {
+    margin-top: 34px;
+}
+
 
 /***** サイドバー *****************************************/
 .container-body {
@@ -49,11 +104,11 @@ body header .container a {
 }
 
 .sidebar {
-    flex: 0 0 180px;
+    width: 180px;
     background-color:mediumaquamarine;
     color: white;
     padding: 20px;
-    height: 100vh;
+    height: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -62,19 +117,19 @@ body header .container a {
     margin-bottom: 55px;
 }
 
-.menu {
+.sidebar .menu {
     list-style-type: none;
     padding: 0;
 }
 
-.menu li:first-child {
+.sidebar .menu li:first-child {
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
     padding: 8px 0;
     margin-bottom: 21px;
 }
 
-.menu li a {
+.sidebar .menu li a {
     text-decoration: none;
     color: white;
     padding: 10px;
@@ -82,23 +137,34 @@ body header .container a {
     transition: background-color 0.2s;
 }
 
-.menu li a:hover {
+.sidebar .menu li a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-footer {
+.sidebar footer {
     position: absolute;
     bottom: 10px;
     left: 20px;
 }
 
-main {
-    flex-grow: 1;
-}
-
 .sidebar form {
     margin: 0;
 }
+
+.logout_button {
+    width: 180px;
+    height: 44px;
+    border-radius: 0;
+    background-color:mediumaquamarine;
+    color:#fff;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.logout_button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 
 /***** top画面 *****************************************/
 .top {
@@ -130,14 +196,6 @@ main {
 
 
 /***** ダッシュボードのスタイル ***************************************/
-.dashboard {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: calc(100vh - 60px); */
-}
-
 .dashboard h2 {
     margin-top: 100px;
     margin-left: 50px;
@@ -151,14 +209,8 @@ main {
 }
 
 /***** コンテナのスタイル ***************************************/
-/* .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-*/
 .container-box {
-    width: 640px;
+    width: 540px;
     margin: 34px auto;
     padding: 0;
     border: 1px solid #ddd;
@@ -185,7 +237,7 @@ main {
     align-items: center;
     font-size: 14px;
     color: #555;
-    margin: 3px 0;
+    margin: 20px 70px;
 }
 
 .container-box form div label {
@@ -198,21 +250,12 @@ main {
     padding: 5px;
     margin: 8px 0;
 }
-/*
-.container-index input {
-    margin-top: 5px;
+
+.container-register {
+    width: 500px;
+    margin: 0 auto;
 }
 
-.container-index label,
-.container-index h2 {
-    font-size: 16px;
-    margin: 0;
-}
-
-.container-index label {
-    color: #555;
-}
-*/
 .container-register h2 {
     color: #555;
     font-size: 16px;
@@ -241,69 +284,321 @@ main {
 }
 
 
-/***** フォームのスタイル ***************************************/
-form {
-    max-width: 500px;
-    margin: 20px auto;
+/***** カテゴリー管理画面 ***************************************/
+.container-categories {
+    width: 90%;
+    height: auto;
+    margin: 20px 30px;
+    padding: 0;
+
 }
 
-input[type="text"],
-input[type="password"],
-textarea {
+.container-categories h2 {
+    font-size: 18px;
+}
+
+.new-category-form {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    gap: 10px;
+    margin-left: 0;
+    margin-bottom: 20px;
 }
 
-button,
-input[type="submit"] {
-    width: auto;
-    padding: 5px 13px;
+.new-category-form .label-box {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#new-category {
+    width: 40%;
+    margin-right: 8px;
+}
+
+.new-category-form .label-box span {
+    color: #F00;
+    margin-left: 5px;
+    line-height: 0.5;
+}
+
+.category-table {
+    width: 500px;
+    border-collapse: collapse;
+}
+
+.category-table th, .category-table td {
+    border: 1px solid #555;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.category-table th:first-child {
+    width: 30px;
+}
+
+.category-table th:nth-child(3),
+.category-table th:nth-child(4) {
+    width: 48px;
+}
+
+.container-categories table .edit-btn {
+    width: 46.6px;
+    height: 29.5px;
+    background-color: #007BFF;
+    color: white;
     border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-
-/***** ボタンのスタイル ***************************************/
-.login_button,
-.register-button
-{
-    background-color: rgb(94, 94, 255);
-    color: #FFF;
-}
-
-.logout_button {
-    width: 180px;
-    height: 44px;
-    border-radius: 0;
-    background-color:mediumaquamarine;
-    color:#fff;
-    font-size: 16px;
+    border-radius: 5px;
     transition: background-color 0.2s;
 }
 
-.login_button:hover,
-.register-button:hover,
-input[type="submit"]:hover {
-    background-color: rgb(131, 131, 254);
+.container-categories table .edit-btn a {
+    font-size: 14px;
+    color: #fff;
+    vertical-align: middle;
+    padding-top: 0px;
+    margin-left: 8px;
 }
 
-.logout_button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+.edit-btn:hover {
+    background-color: #66b0ff;
 }
 
-.register-button {
-    margin-top: 34px;
+.delete-btn {
+    background-color: #FF0000;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #ff6161;
+}
+
+.category-button {
+    border: 1px solid #555;
+    background-color: #ccc;
+}
+
+.category-button:hover {
+    background-color: #ddd;
 }
 
 
-/***** エラーメッセージのスタイル ***************************************/
-.errors li {
-    color: red;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-    list-style-type: none;
+/***** カテゴリー編集画面のスタイル ***************************************/
+.category-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.category-edit h2 {
+    margin-bottom: 21px;
+}
+
+.category-edit .input-group {
+    margin-bottom: 20px;
+}
+
+.category-edit label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.category-edit input[type="text"] {
+    width: 240px;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+.category-edit .actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-edit .btn {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #50C878;  /* エメラルドグリーン */
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.category-edit .btn:hover {
+    background-color: #40B868;
+}
+
+.category-edit .btn-blue {
+    background-color: #007BFF;
+}
+
+.category-edit .btn-blue:hover {
+    background-color: #0069D9;
+}
+
+
+/***** お店リスト画面のスタイル ***************************************/
+.container-shop-index {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+}
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+#shopSearch {
+    width: 280px;
+    padding: 10px;
+    border: 1px solid #555;
+}
+
+#searchBtn {
+    padding: 5px 15px;
+    margin-left: 10px;
+    border: 1px solid #555;
+    background-color: #ccc;
+    transition: background-color 0.2s;
+}
+
+#searchBtn:hover {
+    background-color: #ddd;
+}
+
+.shop-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shop-list tbody,
+.shop-list thead {
+    font-size: 14px;
+}
+
+.shop-list thead {
+    background-color: #f7f7f7;
+}
+
+.shop-list thead th:nth-child(4) {
+    width: 60px;
+}
+
+.shop-list thead th:first-child {
+    width: 40px;
+}
+
+.shop-list thead th:nth-child(6),
+.shop-list thead th:nth-child(7),
+.shop-list thead th:nth-child(8) {
+    width: 48px;
+}
+
+.shop-list th, .shop-list td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.shop-list .detail-button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 7.8px 9px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.shop-list .detail-button:hover {
+    background-color: #7ac07e;
+}
+
+.shop-list .edit-button {
+    background-color: #2196F3;
+    color: white;
+    padding: 7.8px 9px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.shop-list .edit-button:hover {
+    background-color: #65b0fb;
+}
+
+.shop-list .delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.shop-list .delete-button:hover {
+    background-color: #f37373;
+}
+
+
+/***** お店 新規登録/編集画面のスタイル ***************************************/
+.container-create {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px;
+}
+
+.container-create h2 {
+    align-self: center;
+}
+
+/* .form-group {
+    margin-bottom: 20px;
+} */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-name {
+    align-items: center;
+}
+
+.form-name-kana {
+    align-self: center;
+}
+
+/* input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+} */
+
+.form-checkbox {
+    display: flex;
+}
+
+/* .checkbox {
+    display: inline-block;
+    margin-right: 10px;
+} */
+
+button {
+    background-color: #50C878;  /* エメラルドグリーン */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #3FA965;
 }

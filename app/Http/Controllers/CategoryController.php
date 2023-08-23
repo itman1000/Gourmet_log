@@ -16,7 +16,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:categories|max:255',
+            'name' => 'required|string|max:10',
+        ],[
+            'name.required' => '名前を入力してください',
+            'name.string' => '文字で入力してください',
+            'name.max' => ':max文字以内で入力してください',
         ]);
 
         $category = Category::create($validatedData);
@@ -31,7 +35,11 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255|unique:categories,name,' . $category->id,
+            'name' => 'required|max:10|string',
+        ],[
+            'name.required' => '名前を入力してください',
+            'name.string' => '文字で入力してください',
+            'name.max' => ':max文字以内で入力してください',
         ]);
 
         $category->update($validatedData);
@@ -48,7 +56,6 @@ class CategoryController extends Controller
         }
 
         $category->delete();
-        Session::flash('success', 'カテゴリを削除しました。');
         return redirect()->route('categories.index');
     }
 }

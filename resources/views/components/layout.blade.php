@@ -12,8 +12,8 @@
             <h1>Gourmet Log</h1>
             <ul class="menu">
                 <li>MENU</li>
-                <li><a href="/shops">お店リスト</a></li>
-                <li><a href="/shops/create">お店登録／編集</a></li>
+                <li><a href="/restaurants">お店リスト</a></li>
+                <li><a href="/restaurants/create">お店登録／編集</a></li>
                 <li><a href="/categories">カテゴリー管理</a></li>
                 <li>
                     <form method="POST" action="{{ route('auth.logout') }}">
@@ -32,6 +32,6 @@
         </main>
     </div>
 
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -25,6 +25,15 @@ class RestaurantController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:20',
+            'name_katakana' => 'required|regex:/^[ァ-ヾ]+$/u',
+            'category' => 'required|array',
+            'review' => 'required|integer|between:1,5',
+            'phone' => 'nullable|digits_between:1,15',
+            'comment' => 'required|string|max:300',
+        ]);
+
         $restaurant = Restaurant::create($request->all());
 
         foreach($request->category_ids as $categoryId) {
@@ -53,6 +62,16 @@ class RestaurantController extends Controller
     public function update(Request $request, $id)
     {
         $restaurant = Restaurant::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string|max:20',
+            'name_katakana' => 'required|regex:/^[ァ-ヾ]+$/u',
+            'category' => 'required|array',
+            'review' => 'required|integer|between:1,5',
+            'phone' => 'nullable|digits_between:1,15',
+            'comment' => 'required|string|max:300',
+        ]);
+
         $restaurant->update($request->all());
 
         CategoryTag::where('restaurant_id', $id)->delete();
